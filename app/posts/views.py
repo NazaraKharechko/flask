@@ -1,8 +1,10 @@
 from flask import Blueprint, render_template, request
 
 from app.forms import Vlasnik, Pet
+from .clients_lists import clients_list
 
 posts = Blueprint('posts', __name__, template_folder='templates', static_folder='static')
+
 
 
 @posts.route('/')
@@ -31,10 +33,7 @@ def new_posts():
         name = request.form['name']
         age = request.form['age']
         city = request.form['city']
-
-    if name != '':
-        for k, v in request.form.items():
-            print('k =', k, 'v =', v)
+    clients_list.append({'id': len(clients_list) + 1, 'name': name, 'age': age, 'city': city, 'pets': []})
     return render_template('posts/new_posts.html', name=name, age=age, city=city, form=form)
 
 
@@ -49,7 +48,7 @@ def pet_posts():
         age_pet = request.form['age_pet']
         typ_pet = request.form['typ_pet']
     return render_template('posts/pet_posts.html', name_pet=name_pet, age_pet=age_pet, typ_pet=typ_pet,
-                           form_pet=form_pet, dik=dik)
+                           form_pet=form_pet,)
 
 
 # @posts.route('/typ/cet')
