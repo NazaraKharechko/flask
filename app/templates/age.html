@@ -1,0 +1,28 @@
+{% extends 'hello.html' %}
+{% block title %}
+ Age
+{% endblock %}
+{#{%  block title_content %}#}
+{#  Home#}
+{#{% endblock %}#}
+{% block content %}
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href={{ url_for('static', filename = 'style.css') }} rel="stylesheet" >
+</head>
+<body>
+    <h1>My age => {{ user.age }}</h1>
+    {% for k,v in d.items() %}
+        <div>
+        k = {{ k }}
+        v = {{ v }}
+        </div>
+    {% endfor %}
+
+    <h2><a href="/">=<</a></h2>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'hello.html' %}
+{% block title %}
+ Mail
+{% endblock %}
+{#{%  block title_content %}#}
+{#  Home#}
+{#{% endblock %}#}
+{% block content %}
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href={{ url_for('static', filename = 'style.css') }} rel="stylesheet" >
+</head>
+<body>
+  <h1>My mail => {{ user.mail }}</h1>
+  <div class="card" style="width: 18rem;">
+  <img src="https://i.pinimg.com/736x/98/2b/01/982b012530231e444573cc35bdeed3cd.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="/" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+<div class="item">
+    {% for i in us %}
+        <div class="users">
+        <div>User id => {{ i.id }}</div>
+        <div>Name => {{ i.name }}</div>
+        <div>Username => {{ i.username }}</div>
+        </div>
+        <div class="posts">
+                 {% for posts in i['posts'] %}
+                    <div>userId =>{{ posts.userId }}</div>
+                    <div>title => {{ posts.title }}</div>
+                    <div></div>
+                {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+
+<h2><a href="/">=<</a></h2>
+</body>
+</html>
+{% endblock %}
+
+
+
+
+
+
+

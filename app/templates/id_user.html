@@ -1,0 +1,37 @@
+{% extends 'hello.html' %}
+{% block title %}
+ User
+{% endblock %}
+{% block content %}
+
+        <div>
+           <h1> User id == {{ ids }}</h1>
+                {% for i in us %}
+                   {% if i.id == ids %}
+                      <h1>Name => {{ i.name }}<br>
+                         Username => {{ i.username }}<br>
+                      Email => {{ i.email }}
+                      </h1>
+                    {% endif %}
+                {% endfor %}
+        </div>
+
+<div class="item">
+    {% for i in users %}
+        <div class="users">
+        <div>User id => {{ i.id }}</div>
+        <div>Name => {{ i.name }}</div>
+        <div>Username => {{ i.username }}</div>
+        <div>address => {{ i.address['city'] }}</div>
+        </div>
+        <div class="posts">
+                 {% for posts in i['posts'] %}
+                    <div>userId =>{{ posts.userId }}</div>
+                    <div>title => {{ posts.title }}</div>
+                    <div></div>
+                {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

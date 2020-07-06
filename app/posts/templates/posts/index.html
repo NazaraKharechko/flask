@@ -1,0 +1,14 @@
+{% extends 'hello.html' %}
+
+{% block ccs_js_img %}
+<link href={{ url_for('posts.static', filename = 'css/style.css') }} rel="stylesheet" >
+{% endblock %}
+
+{% block title %}
+ Posts | index
+{% endblock %}
+
+{% block content %}
+Post page
+
+{% endblock %}

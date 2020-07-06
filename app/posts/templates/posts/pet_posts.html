@@ -1,0 +1,40 @@
+{% extends 'hello.html' %}
+
+{% block ccs_js_img %}
+<link href={{ url_for('posts.static', filename = 'css/style.css') }} rel="stylesheet" >
+{% endblock %}
+
+{% block title %}
+ New_posts | index
+{% endblock %}
+
+{% block content %}
+NEW Pet
+
+    <div>name_pet => {{ name_pet  }}</div>
+    <div> age_pet => {{ age_pet  }}</div>
+    <div> Type_pet => {{ typ_pet }}</div>
+    <br>
+
+
+
+    <form method="POST" action="{{ url_for('posts.pet_posts') }}">
+        {% for x in form_pet %}
+            {{ x.label }}
+            {{ x }}
+        {% endfor %}
+        <button type="submit">Save</button>
+    </form>
+
+
+    {{ dik  }}
+
+    {% for k, v in dik %}
+        {% if v == 'cet' %}
+           k => {{ k }}
+           v => {{ v }}
+            {{ dik['name'] }}
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}

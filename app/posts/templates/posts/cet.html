@@ -1,0 +1,28 @@
+{% extends 'hello.html' %}
+
+{% block ccs_js_img %}
+<link href={{ url_for('posts.static', filename = 'css/style.css') }} rel="stylesheet" >
+{% endblock %}
+
+{% block title %}
+ New_posts | index
+{% endblock %}
+
+{% block content %}
+NEW cet
+
+    <div>name_pet => {{ name_pet  }}</div>
+    <div> age_pet => {{ age_pet  }}</div>
+    <div> Type_pet => {{ typ_pet }}</div>
+    <br>
+
+
+    <br>
+
+            {% for k, v in dik %}
+                {{ k }}
+                {{ v }}
+            {% endfor %}
+
+
+{% endblock %}
